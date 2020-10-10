@@ -43,7 +43,7 @@ class GameScreen extends StatelessWidget {
       title: const Text("Snaake"),
       actions: <Widget>[
         BlocBuilder<GameBloc, GameState>(
-          condition: (before, after) => before.status != after.status,
+          buildWhen: (before, after) => before.status != after.status,
           builder: (context, state) {
             switch (state.status) {
               case Status.pause:
@@ -129,7 +129,7 @@ class GameScreen extends StatelessWidget {
               _gameRenderer.updateSnake(state.snake);
             },
             child: BlocBuilder<GameBloc, GameState>(
-              condition: (before, current) => before.status != current.status,
+              buildWhen: (before, current) => before.status != current.status,
               builder: (context, state) {
                 final bloc = BlocProvider.of<GameBloc>(context);
                 return state.status == Status.loading

@@ -22,7 +22,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     this.snakeInitialLength = 4,
     this.updatePeriod = 150,
   })  : assert(random != null),
-        assert(snakeInitialLength >= 4) {
+        assert(snakeInitialLength >= 4),
+        super(GameState(
+          status: Status.loading,
+          score: 0,
+          velocity: Vec2d(0, -1),
+        )) {
     add(LoadAssetsEvent());
   }
 
@@ -37,15 +42,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   /// The game update period in milliseconds.
   final int updatePeriod;
-
-  @override
-  GameState get initialState {
-    return GameState(
-      status: Status.loading,
-      score: 0,
-      velocity: Vec2d(0, -1),
-    );
-  }
 
   Future<void> _preloadAssets() async {
     await flameManager?.setup();

@@ -58,7 +58,7 @@ void main() {
   group('test snake movement', () {
     blocTest(
       'with no input',
-      build: () async => GameBloc(random: Random(200)),
+      build: () => GameBloc(random: Random(200)),
       skip: 3,
       act: (bloc) async {
         bloc.add(LoadAssetsEvent());
@@ -70,7 +70,7 @@ void main() {
 
     blocTest(
       'with arrow keys button pressed',
-      build: () async => GameBloc(random: Random(200)),
+      build: () => GameBloc(random: Random(200)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -181,7 +181,7 @@ void main() {
 
     blocTest(
       'press opposite direction must not change the direction',
-      build: () async => GameBloc(random: Random(200)),
+      build: () => GameBloc(random: Random(200)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -296,7 +296,7 @@ void main() {
 
     blocTest(
       'on eat food',
-      build: () async => GameBloc(random: Random(0)),
+      build: () => GameBloc(random: Random(0)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -351,7 +351,7 @@ void main() {
   group('check collision with the wall', () {
     blocTest(
       'on top',
-      build: () async => GameBloc(random: Random(100)),
+      build: () => GameBloc(random: Random(100)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -396,7 +396,7 @@ void main() {
 
     blocTest(
       'on left',
-      build: () async => GameBloc(random: Random(100)),
+      build: () => GameBloc(random: Random(100)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -448,7 +448,7 @@ void main() {
 
     blocTest(
       'on right',
-      build: () async => GameBloc(random: Random(100)),
+      build: () => GameBloc(random: Random(100)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -500,7 +500,7 @@ void main() {
 
     blocTest(
       'on bottom',
-      build: () async => GameBloc(random: Random(100)),
+      build: () => GameBloc(random: Random(100)),
       skip: 3,
       act: (bloc) async {
         bloc
@@ -567,7 +567,7 @@ void main() {
 
   blocTest(
     'test snake biting itself',
-    build: () async => GameBloc(
+    build: () => GameBloc(
       random: Random(200),
       snakeInitialLength: 6,
     ),
@@ -660,7 +660,7 @@ void main() {
 
   blocTest(
     'test pause and resume game',
-    build: () async => GameBloc(
+    build: () => GameBloc(
       random: Random(200),
     ),
     skip: 3,
@@ -728,7 +728,7 @@ void main() {
 
   blocTest(
     'test new game',
-    build: () async => GameBloc(
+    build: () => GameBloc(
       random: Random(200),
     ),
     skip: 3,
